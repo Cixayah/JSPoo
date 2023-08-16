@@ -1,15 +1,22 @@
 <!DOCTYPE html>
 <html lang="en">
-
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <link rel="stylesheet" href="style.css">
     <title>POO em JavaScript</title>
 </head>
-
 <body>
+    <div class="container">
+        <h1>Estudantes</h1>
+        <form id="estudante-form">
+            <input type="text" id="nome" placeholder="Nome" required>
+            <input type="number" id="idade" placeholder="Idade" required>
+            <input type="text" id="curso" placeholder="Curso" required>
+            <button type="submit">Adicionar Estudante</button>
+        </form>
+        <div id="estudante-list"></div>
+    </div>
     <script src="script.js"></script>
 </body>
-
 </html>
