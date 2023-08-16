@@ -1,6 +1,10 @@
+* {
+    font-family: cascadia mono, serif;
+}
 body {
-    font-family: Arial, sans-serif;
-    background-color: #f2f2f2;
+    font-family: 'Courier New', monospace;
+    background-color: #282a36;
+    color: #f8f8f2;
     margin: 0;
     padding: 0;
     display: flex;
@@ -10,37 +14,49 @@ body {
 }
 
 .container {
-    background-color: white;
+    background-color: #44475a;
     border-radius: 10px;
     box-shadow: 0px 0px 10px rgba(0, 0, 0, 0.1);
     padding: 20px;
     text-align: center;
     width: 300px;
 }
-
+input::placeholder {
+    color: #f8f8f2;
+    opacity: 0.7;
+}
 h1 {
     margin-bottom: 10px;
+    color: #ff79c6;
 }
 
 input {
     width: 100%;
     padding: 5px;
     margin: 5px 0;
-    border: 1px solid #ccc;
+    border: none;
     border-radius: 3px;
+    background-color: #6272a4;
+    color: #c3c307;
+    font-weight: bold;
 }
 
 button {
-    background-color: #007bff;
-    color: white;
+    background-color: #bd93f9;
+    color: #282a36;
     padding: 5px 10px;
     border: none;
-    border-radius: 3px;
+    border-radius: 5px;
     cursor: pointer;
+    transition: background-color 0.3s;
+}
+
+button:hover {
+    background-color: #ff79c6;
 }
 
 .estudante {
-    background-color: #f9f9f9;
+    background-color: #44475a;
     border-radius: 5px;
     padding: 10px;
     margin: 10px 0;
@@ -50,4 +66,20 @@ button {
 
 button:focus {
     outline: none;
+}
+
+#editar-btn, #cancelar-btn {
+    background-color: #bd93f9;
+    color: #282a36;
+    padding: 5px 10px;
+    border: none;
+    border-radius: 5px;
+    cursor: pointer;
+    display: none;
+    margin-right: 5px;
+    transition: background-color 0.3s;
+}
+
+#editar-btn:hover, #cancelar-btn:hover {
+    background-color: #ff79c6;
 }
