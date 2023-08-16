@@ -36,17 +36,19 @@ estudanteForm.addEventListener("submit", function (e) {
     const curso = document.getElementById("curso").value;
 
     if (editingStudent) {
-        // Atualizar o estudante editado
-        editingStudent.nome = nome;
-        editingStudent.idade = idade;
-        editingStudent.curso = curso;
-        updateStudentList();
-        editingStudent = null;
-        estudanteForm.reset();
-        editarBtn.style.display = "none";
-        cancelarBtn.style.display = "none";
+        const index = estudantes.indexOf(editingStudent);
+
+        if (index !== -1) {
+            editingStudent.nome = nome;
+            editingStudent.idade = idade;
+            editingStudent.curso = curso;
+            updateStudentList();
+            estudanteForm.reset();
+            editarBtn.style.display = "none";
+            cancelarBtn.style.display = "none";
+            editingStudent = null;
+        }
     } else {
-        // Adicionar um novo estudante
         const estudante = new Estudante(nome, idade, curso);
         estudantes.push(estudante);
         updateStudentList();

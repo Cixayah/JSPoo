@@ -3,17 +3,19 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Gerenciamento de Estudantes</title>
     <link rel="stylesheet" href="style.css">
-    <title>POO em JavaScript</title>
 </head>
 <body>
     <div class="container">
-        <h1>Estudantes</h1>
+        <h1>Gerenciamento de Estudantes</h1>
         <form id="estudante-form">
             <input type="text" id="nome" placeholder="Nome" required>
             <input type="number" id="idade" placeholder="Idade" required>
             <input type="text" id="curso" placeholder="Curso" required>
             <button type="submit">Adicionar Estudante</button>
+            <button type="button" id="editar-btn" style="display: none;">Salvar Edição</button>
+            <button type="button" id="cancelar-btn" style="display: none;">Cancelar</button>
         </form>
         <div id="estudante-list"></div>
     </div>
