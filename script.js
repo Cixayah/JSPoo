@@ -24,6 +24,7 @@ const estudanteForm = document.getElementById("estudante-form");
 const estudanteList = document.getElementById("estudante-list");
 const editarBtn = document.getElementById("editar-btn");
 const cancelarBtn = document.getElementById("cancelar-btn");
+const adicionarBtn = document.getElementById("adicionar-btn");
 
 let editingStudent = null;
 const estudantes = [];
@@ -35,19 +36,16 @@ estudanteForm.addEventListener("submit", function (e) {
     const idade = parseInt(document.getElementById("idade").value);
     const curso = document.getElementById("curso").value;
 
-    if (editingStudent) {
-        const index = estudantes.indexOf(editingStudent);
-
-        if (index !== -1) {
-            editingStudent.nome = nome;
-            editingStudent.idade = idade;
-            editingStudent.curso = curso;
-            updateStudentList();
-            estudanteForm.reset();
-            editarBtn.style.display = "none";
-            cancelarBtn.style.display = "none";
-            editingStudent = null;
-        }
+    if (editingStudent !== null) {
+        editingStudent.nome = nome;
+        editingStudent.idade = idade;
+        editingStudent.curso = curso;
+        updateStudentList();
+        estudanteForm.reset();
+        editarBtn.style.display = "none";
+        cancelarBtn.style.display = "none";
+        adicionarBtn.style.display = "inline-block";
+        editingStudent = null;
     } else {
         const estudante = new Estudante(nome, idade, curso);
         estudantes.push(estudante);
@@ -74,6 +72,7 @@ function updateStudentList() {
             document.getElementById("curso").value = estudante.curso;
             editarBtn.style.display = "inline-block";
             cancelarBtn.style.display = "inline-block";
+            adicionarBtn.style.display = "none";
             editingStudent = estudante;
         });
 
@@ -92,10 +91,15 @@ function updateStudentList() {
     });
 }
 
+editarBtn.addEventListener("click", function () {
+    estudanteForm.dispatchEvent(new Event("submit")); // Dispara o evento de submit para realizar a edição
+});
+
 cancelarBtn.addEventListener("click", function () {
     estudanteForm.reset();
     editarBtn.style.display = "none";
     cancelarBtn.style.display = "none";
+    adicionarBtn.style.display = "inline-block";
     editingStudent = null;
 });
 
